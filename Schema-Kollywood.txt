@@ -309,84 +309,43 @@ Practise Questions :
 
 >> List the names of all movies along with the names of their actors.
 
-		SELECT m.movie_name, a.name AS actor_name 
-FROM movies m
-JOIN movie_actor ma ON m.movie_id = ma.movie_id
-JOIN actors a ON ma.actor_id = a.actor_id;
+		SELECT m.movie_name, a.name AS actor_name FROM movies m JOIN movie_actor ma ON m.movie_id = ma.movie_id JOIN actors a ON ma.actor_id = a.actor_id;
 
 >> Find the actors who have acted in more than 3 movies.
 
-SELECT a.name 
-FROM actors a
-JOIN movie_actor ma ON a.actor_id = ma.actor_id
-GROUP BY a.name
-HAVING COUNT(ma.movie_id) > 3;
+		SELECT a.name FROM actors a JOIN movie_actor ma ON a.actor_id = ma.actor_id GROUP BY a.name HAVING COUNT(ma.movie_id) > 3;
 
 >> Display the movie names and release years for the movies in which actor "Vijay" acted.
 
-		SELECT m.movie_name, m.year 
-FROM movies m
-JOIN movie_actor ma ON m.movie_id = ma.movie_id
-JOIN actors a ON ma.actor_id = a.actor_id
-WHERE a.name = 'Vijay';
+		SELECT m.movie_name, m.year FROM movies m JOIN movie_actor ma ON m.movie_id = ma.movie_id JOIN actors a ON ma.actor_id = a.actor_id WHERE a.name = 'Vijay';
 
 >> Get the names of movies and their actors that were released in the year 2022.
 
-SELECT m.movie_name, a.name AS actor_name
-FROM movies m
-JOIN movie_actor ma ON m.movie_id = ma.movie_id
-JOIN actors a ON ma.actor_id = a.actor_id
-WHERE m.year = 2022;
+		SELECT m.movie_name, a.name AS actor_name FROM movies m JOIN movie_actor ma ON m.movie_id = ma.movie_id JOIN actors a ON ma.actor_id = a.actor_id WHERE m.year = 2022;
 
 >> Count how many actors appeared in each movie.
 
-SELECT m.movie_name, COUNT(a.actor_id) AS actor_count
-FROM movies m
-JOIN movie_actor ma ON m.movie_id = ma.movie_id
-JOIN actors a ON ma.actor_id = a.actor_id
-GROUP BY m.movie_name;
-
+		SELECT m.movie_name, COUNT(a.actor_id) AS actor_count FROM movies m JOIN movie_actor ma ON m.movie_id = ma.movie_id JOIN actors a ON ma.actor_id = a.actor_id GROUP BY m.movie_name;
 
 >> Find all actors who starred in movies that grossed more than 250 crores at the box office.
 
-
-SELECT DISTINCT a.name
-FROM actors a
-JOIN movie_actor ma ON a.actor_id = ma.actor_id
-JOIN movies m ON ma.movie_id = m.movie_id
-WHERE m.box_office > 250;
+		SELECT DISTINCT a.name FROM actors a JOIN movie_actor ma ON a.actor_id = ma.actor_id JOIN movies m ON ma.movie_id = m.movie_id WHERE m.box_office > 250;
 
 >> List all movies and their actors for movies released before the year 2010.
 
-SELECT m.movie_name, a.name AS actor_name
-FROM movies m
-JOIN movie_actor ma ON m.movie_id = ma.movie_id
-JOIN actors a ON ma.actor_id = a.actor_id
-WHERE m.year < 2010;
+		SELECT m.movie_name, a.name AS actor_name FROM movies m JOIN movie_actor ma ON m.movie_id = ma.movie_id JOIN actors a ON ma.actor_id = a.actor_id WHERE m.year < 2010;
 
 >> Retrieve all actors who acted in a movie with a box office collection above 200 crores.
 
-SELECT DISTINCT a.name
-FROM actors a
-JOIN movie_actor ma ON a.actor_id = ma.actor_id
-JOIN movies m ON ma.movie_id = m.movie_id
-WHERE m.box_office > 200;
+		SELECT DISTINCT a.name FROM actors a JOIN movie_actor ma ON a.actor_id = ma.actor_id JOIN movies m ON ma.movie_id = m.movie_id WHERE m.box_office > 200;
 
 >> Find the movies in which actor "Rajinikanth" acted and their corresponding box office collections.
 
-SELECT m.movie_name, m.box_office
-FROM movies m
-JOIN movie_actor ma ON m.movie_id = ma.movie_id
-JOIN actors a ON ma.actor_id = a.actor_id
-WHERE a.name = 'Rajinikanth';
+		SELECT m.movie_name, m.box_office FROM movies m JOIN movie_actor ma ON m.movie_id = ma.movie_id JOIN actors a ON ma.actor_id = a.actor_id WHERE a.name = 'Rajinikanth';
 
 >> List actors who have acted in movies with box office collections between 100 and 200 crores.
 
-SELECT DISTINCT a.name
-FROM actors a
-JOIN movie_actor ma ON a.actor_id = ma.actor_id
-JOIN movies m ON ma.movie_id = m.movie_id
-WHERE m.box_office BETWEEN 100 AND 200;
+		SELECT DISTINCT a.name FROM actors a JOIN movie_actor ma ON a.actor_id = ma.actor_id JOIN movies m ON ma.movie_id = m.movie_id WHERE m.box_office BETWEEN 100 AND 200;
 
 
 	
