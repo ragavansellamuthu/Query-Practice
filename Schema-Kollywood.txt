@@ -1,0 +1,393 @@
+Schema : Kollywood 
+
+1) Create a schema : "kollywood"
+
+2) Create 3 tables :
+
+	Table 1 : movies : 
+	
+	CREATE TABLE kollywood.movies ( movie_id INT AUTO_INCREMENT PRIMARY KEY,
+									movie_name VARCHAR(100) NOT NULL,
+									year YEAR NOT NULL,
+									box_office INT
+								   );
+
+	Table 2 : actors : 
+	
+	CREATE TABLE kollywood.actors ( actor_id INT AUTO_INCREMENT PRIMARY KEY,
+									name VARCHAR(100) NOT NULL
+								   );
+
+	Table 3 : movies_actors :
+	
+	CREATE TABLE kollywood.movies_actors ( movie_id INT NOT NULL,
+										   actor_id INT NOT NULL,
+										   FOREIGN KEY (movie_id) REFERENCES movies(movie_id),
+										   FOREIGN KEY (actor_id) REFERENCES actors(actor_id)
+										  );
+	
+3) Populate dataset in three tabes : 
+
+	Table 1 : movies : 
+	
+	INSERT INTO kollywood.movies (movie_name, year) VALUES  ('Vikram', 2022),
+														    ('Master', 2021),
+												            ('Kaithi', 2019),
+														    ('Theri', 2016),
+															('Mersal', 2017),
+															('Asuran', 2019),
+															('Viswasam', 2019),
+															('Sivaji', 2007),
+															('Enthiran', 2010),
+															('Kabali', 2016),
+															('Petta', 2019),
+															('Jailer', 2023),
+															('Dasavatharam', 2008),
+															('Varisu', 2023),
+															('Don', 2022),
+															('Bigil', 2019),
+															('Beast', 2022),
+															('Darbar', 2020),
+															('Thuppakki', 2012),
+															('Ghilli', 2004),
+															('Anniyan', 2005),
+															('Ponniyin Selvan: I', 2022),
+															('Ponniyin Selvan: II', 2023),
+															('Alaipayuthey', 2000),
+															('Roja', 1992),
+															('Bombay', 1995),
+															('Vettaiyaadu Vilaiyaadu', 2006),
+															('Nayakan', 1987),
+															('Indian', 1996),
+															('Padayappa', 1999),
+															('Baasha', 1995),
+															('Thalapathi', 1991),
+															('Mahanadhi', 1994),
+															('Jeans', 1998),
+															('Mudhalvan', 1999),
+															('Velaiilla Pattadhari', 2014),
+															('Ratsasan', 2018),
+															('3', 2012),
+															('Kodi', 2016),
+															('Maari', 2015),
+															('Karnan', 2021),
+															('Pariyerum Perumal', 2018),
+															('Kaala', 2018),
+															('Aramm', 2017),
+															('Naanum Rowdy Dhaan', 2015),
+															('Billa', 2007),
+															('Chandramukhi', 2005),
+															('Singam', 2010),
+															('Vel', 2007),
+															('Kuruvi', 2008),
+															('Vettai', 2012);
+															
+	Table 2 : actors : 
+	
+	INSERT INTO kollywood.actors (name) VALUES  ('Kamal Haasan'),
+												('Rajinikanth'),
+												('Vijay'),
+												('Ajith Kumar'),
+												('Suriya'),
+												('Karthi'),
+												('Dhanush'),
+												('Vikram'),
+												('Jayam Ravi'),
+												('Arya'),
+												('Nayanthara'),
+												('Trisha'),
+												('Samantha'),
+												('Shruti Haasan'),
+												('Anushka Shetty'),
+												('Jyothika'),
+												('Keerthy Suresh'),
+												('Aishwarya Rai'),
+												('Amala Paul'),
+												('Tamannaah'),
+												('Hansika'),
+												('Vijay Sethupathi'),
+												('Prakash Raj'),
+												('Arvind Swamy'),
+												('Sivakarthikeyan'),
+												('Rashmika Mandanna'),
+												('Meena'),
+												('Ramya Krishnan'),
+												('Shivaji Ganesan'),
+												('Revathi'),
+												('Saranya'),
+												('Nadhiya'),
+												('R. Madhavan'),
+												('Andrea Jeremiah'),
+												('Sneha'),
+												('Lakshmi Menon'),
+												('Nivetha Pethuraj'),
+												('Anjali'),
+												('Raashi Khanna'),
+												('Nazriya Nazim'),
+												('Priya Anand'),
+												('Bobby Simha'),
+												('Vikranth'),
+												('Aadhi Pinisetty'),
+												('Samuthirakani'),
+												('Kalidas Jayaram'),
+												('Aparna Balamurali'),
+												('Parthiban'),
+												('Vadivelu'),
+												('Santhanam');
+
+	
+	Table 3 : movies_actors : 
+	
+	INSERT INTO kollywood.movies_actors (movie_id, actor_id) VALUES (1, 1), (1, 2), (1, 11), 
+																	(2, 3), (2, 12), (2, 13), 
+																	(3, 6), (3, 10), 
+																	(4, 3), (4, 11), 
+																	(5, 3), (5, 13), (5, 12), 
+																	(6, 7), (6, 16), 
+																	(7, 4), (7, 11), 
+																	(8, 2), (8, 18),
+																	(9, 2), (9, 19), 
+																	(10, 2), (10, 12), 
+																	(11, 2), (11, 13), 
+																	(12, 2), (12, 18), 
+																	(13, 1), (13, 17),
+																	(14, 3), (14, 16), 
+																	(15, 25), (15, 23),
+																	(16, 3), (16, 12), (16, 13),
+																	(17, 3), (17, 26), 
+																	(18, 2), (18, 20), 
+																	(19, 3), (19, 13), 
+																	(20, 3), (20, 12), 
+																	(21, 8), (21, 18), 
+																	(22, 9), (22, 17), 
+																	(23, 9), (23, 18), 
+																	(24, 34), (24, 31),
+																	(25, 28), (25, 22), 
+																	(26, 28), (26, 18), 
+																	(27, 1), (27, 30), 
+																	(28, 1), (28, 20), 
+																	(29, 1), (29, 22), 
+																	(30, 2), (30, 29), 
+																	(31, 2), (31, 30),
+																	(32, 2), (32, 26), 
+																	(33, 1), (33, 33), 
+																	(34, 3), (34, 12),
+																	(35, 4), (35, 11), 
+																	(36, 6), (36, 40),
+																	(37, 7), (37, 12), 
+																	(38, 7), (38, 19), 
+																	(39, 7), (39, 13), 
+																	(40, 6), (40, 16), 
+																	(41, 6), (41, 21), 
+																	(42, 2), (42, 11), 
+																	(43, 4), (43, 11),
+																	(44, 4), (44, 12),
+																	(45, 2), (45, 20), 
+																	(46, 2), (46, 21), 
+																	(47, 4), (47, 11), 
+																	(48, 4), (48, 15),
+																	(49, 3), (49, 14),
+																	(50, 6), (50, 40); 
+
+
+
+Practise Questions : 
+
+1. Basic SELECT Queries
+
+>> List all movies in the dataset.
+
+		SELECT movie_name FROM movies;
+
+>> Display the movie names and their release years.
+
+		SELECT movie_name, year FROM movies;
+
+>> Find all movies released in the year 2022.
+
+		SELECT movie_name FROM movies WHERE year = 2022;
+
+>> Retrieve the names of movies with box office collections greater than 300 crores.
+
+		SELECT movie_name FROM movies WHERE box_office > 300;
+
+>> Show the name and box office collection of movies released before 2010.
+
+		SELECT movie_name, box_office FROM movies WHERE year < 2010;
+		
+2. WHERE Clause
+
+>> Find all movies released between 2000 and 2020.
+
+		SELECT movie_name FROM movies WHERE year BETWEEN 2000 AND 2020;
+
+>> List all movies with a box office collection less than 100 crores.
+
+		SELECT movie_name FROM movies WHERE box_office < 100;
+
+>> Find movies where the box office collection is exactly 150 crores.
+
+		SELECT movie_name FROM movies WHERE box_office = 150;
+
+>> Retrieve all movies whose names start with the letter 'P.'
+
+		SELECT movie_name FROM movies WHERE movie_name LIKE 'P%';
+
+>> List movies where the box office collection is greater than 200 but less than 400 crores.
+
+        SELECT movie_name FROM movies WHERE box_office > 200 AND box_office < 400;
+
+3. Sorting (ORDER BY)
+
+>> Display all movies in ascending order of their box office collection.
+
+		SELECT movie_name, box_office FROM movies ORDER BY box_office ASC;
+
+>> List the top 5 highest-grossing movies.
+
+		SELECT movie_name, box_office FROM movies ORDER BY box_office DESC LIMIT 5;
+
+>> Sort the movies by release year in descending order.
+
+		SELECT movie_name, year FROM movies ORDER BY year DESC;
+
+>> Show movies with the same box office collection, ordered alphabetically by their name.
+
+		SELECT movie_name, box_office FROM movies ORDER BY box_office, movie_name;
+
+4. Aggregate Functions
+
+>> Calculate the total box office collection of all movies.
+
+		SELECT SUM(box_office) FROM movies;
+
+>> Find the average box office collection of movies in the dataset.
+
+		SELECT AVG(box_office) FROM movies;
+
+>> Determine the highest box office collection recorded in the dataset.
+
+		SELECT MAX(box_office) FROM movies;
+
+>> Count how many movies were released after 2015.
+
+		SELECT COUNT(*) FROM movies WHERE year > 2015;
+
+>> Find the number of movies with a box office collection above 200 crores.
+
+		SELECT COUNT(*) FROM movies WHERE box_office > 200;
+
+5. Grouping (GROUP BY)
+
+>> Group movies by their release year and count how many movies were released each year.
+
+		SELECT year, COUNT(*) FROM movies GROUP BY year;
+
+>> Calculate the total box office collection for movies released in each year.
+
+		SELECT year, SUM(box_office) FROM movies GROUP BY year;
+	
+>> Find the year with the highest total box office collection.
+
+		SELECT year, SUM(box_office) AS total_collection FROM movies GROUP BY year ORDER BY total_collection DESC LIMIT 1;
+
+6. Complex Queries
+
+>> List movies released after 2015 and with a box office collection greater than 200 crores.
+
+		SELECT movie_name FROM movies WHERE year > 2015 AND box_office > 200;
+
+>> Find movies that have a box office collection below the average box office collection.
+
+		SELECT movie_name FROM movies WHERE box_office < (SELECT AVG(box_office) FROM movies);
+
+>> Retrieve the names of movies that start with 'A' or 'M' and have collections above 100 crores.
+	
+		SELECT movie_name FROM movies WHERE (movie_name LIKE 'A%' OR movie_name LIKE 'M%') AND box_office > 100;
+
+7. Extra JOIN Queries
+
+>> List the names of all movies along with the names of their actors.
+
+		SELECT m.movie_name, a.name AS actor_name 
+FROM movies m
+JOIN movie_actor ma ON m.movie_id = ma.movie_id
+JOIN actors a ON ma.actor_id = a.actor_id;
+
+>> Find the actors who have acted in more than 3 movies.
+
+SELECT a.name 
+FROM actors a
+JOIN movie_actor ma ON a.actor_id = ma.actor_id
+GROUP BY a.name
+HAVING COUNT(ma.movie_id) > 3;
+
+>> Display the movie names and release years for the movies in which actor "Vijay" acted.
+
+		SELECT m.movie_name, m.year 
+FROM movies m
+JOIN movie_actor ma ON m.movie_id = ma.movie_id
+JOIN actors a ON ma.actor_id = a.actor_id
+WHERE a.name = 'Vijay';
+
+>> Get the names of movies and their actors that were released in the year 2022.
+
+SELECT m.movie_name, a.name AS actor_name
+FROM movies m
+JOIN movie_actor ma ON m.movie_id = ma.movie_id
+JOIN actors a ON ma.actor_id = a.actor_id
+WHERE m.year = 2022;
+
+>> Count how many actors appeared in each movie.
+
+SELECT m.movie_name, COUNT(a.actor_id) AS actor_count
+FROM movies m
+JOIN movie_actor ma ON m.movie_id = ma.movie_id
+JOIN actors a ON ma.actor_id = a.actor_id
+GROUP BY m.movie_name;
+
+
+>> Find all actors who starred in movies that grossed more than 250 crores at the box office.
+
+
+SELECT DISTINCT a.name
+FROM actors a
+JOIN movie_actor ma ON a.actor_id = ma.actor_id
+JOIN movies m ON ma.movie_id = m.movie_id
+WHERE m.box_office > 250;
+
+>> List all movies and their actors for movies released before the year 2010.
+
+SELECT m.movie_name, a.name AS actor_name
+FROM movies m
+JOIN movie_actor ma ON m.movie_id = ma.movie_id
+JOIN actors a ON ma.actor_id = a.actor_id
+WHERE m.year < 2010;
+
+>> Retrieve all actors who acted in a movie with a box office collection above 200 crores.
+
+SELECT DISTINCT a.name
+FROM actors a
+JOIN movie_actor ma ON a.actor_id = ma.actor_id
+JOIN movies m ON ma.movie_id = m.movie_id
+WHERE m.box_office > 200;
+
+>> Find the movies in which actor "Rajinikanth" acted and their corresponding box office collections.
+
+SELECT m.movie_name, m.box_office
+FROM movies m
+JOIN movie_actor ma ON m.movie_id = ma.movie_id
+JOIN actors a ON ma.actor_id = a.actor_id
+WHERE a.name = 'Rajinikanth';
+
+>> List actors who have acted in movies with box office collections between 100 and 200 crores.
+
+SELECT DISTINCT a.name
+FROM actors a
+JOIN movie_actor ma ON a.actor_id = ma.actor_id
+JOIN movies m ON ma.movie_id = m.movie_id
+WHERE m.box_office BETWEEN 100 AND 200;
+
+
+	
+  
